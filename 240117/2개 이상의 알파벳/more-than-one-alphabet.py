@@ -1,8 +1,7 @@
 def is_wanted(string):
-    for i in range(len(string)):
-        for j in range(i+1,len(string)):
-            if string[i] != string[j]:
-                return True
+    for elem in string[1:]:
+        if elem != string[0]:
+            return True
     return False
 
 
