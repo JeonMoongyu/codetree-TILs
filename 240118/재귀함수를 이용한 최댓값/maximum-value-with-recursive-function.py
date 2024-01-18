@@ -1,9 +1,14 @@
-def f(n,arr):
-    if n==1:
-        return arr[0]
-    return arr[n-1] if f(n-1,arr)<arr[n-1] else f(n-1,arr)
-
-
 n = int(input())
 arr = list(map(int,input().split()))
-print(f(n,arr))
+
+def f_arr(m):
+    global arr
+    if m==1:
+        return arr[0]
+    if arr[m-1] >= f_arr(m-1):
+        return arr[m-1]
+    else:
+        return f_arr(m-1)
+
+
+print(f_arr(n))
