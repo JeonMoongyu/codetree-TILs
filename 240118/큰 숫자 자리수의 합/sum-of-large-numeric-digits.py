@@ -3,5 +3,5 @@ def f(n):
         return n
     return f(n//10) + n%10
 
-a,b,c = tuple(map(int,input().splti()))
+a,b,c = tuple(map(int,input().split()))
 print(f(a*b*c))
