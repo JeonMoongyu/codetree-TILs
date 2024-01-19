@@ -6,7 +6,7 @@ class Address:
 
 n = int(input())
 arr = [
-    name, num, area
+    input().split()
     for _ in range(n)
 ]
 people = [
