@@ -10,7 +10,7 @@ for _ in range(5):
 
 idx = 0
 for i in range(1,5):
-    if agents[i].score < agents[0].score:
+    if agents[i].score < agents[idx].score:
         idx = i
 
 print(agents[idx].code_name, agents[idx].score)
