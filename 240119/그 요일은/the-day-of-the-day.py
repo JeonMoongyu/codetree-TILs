@@ -6,4 +6,4 @@ def f(m,d):
 m1,d1,m2,d2 = tuple(map(int,input().split()))
 weekday = input()
 diff = f(m2,d2) - f(m1,d1)
-print(diff//7+1)
+print(diff//7)
