@@ -9,7 +9,7 @@ n = int(input())
 ans = Climate("9999-99-99",0,0)
 for _ in range(n):
     date, day, weather = input().split()
-    if (weather == "Rain") & (date < ans.date):
+    if weather == "Rain" and date < ans.date:
         ans = Climate(date,day,weather)
 
 print(ans.date, ans.day, ans.weather)
