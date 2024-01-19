@@ -5,7 +5,7 @@ class Mission:
         self.time = time
 
 c, p, t = input().split()
-mission1 = Mission(c,p,t)
+mission1 = Mission(c,p,int(t))
 print("secret code :", mission1.code)
 print("meeting point :", mission1.point)
 print("time :", mission1.time)
