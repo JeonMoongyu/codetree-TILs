@@ -1,5 +1,5 @@
-str0 = input()
+binary = list(map(int,list(input())))
 num = 0
-for i in range(len(str0)):
-    num = num*2 + int(str0[i])
+for digit in binary:
+    num = num*2 + digit
 print(num)
