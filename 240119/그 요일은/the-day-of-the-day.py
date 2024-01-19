@@ -7,12 +7,14 @@ def f(m,d):
 m1,d1,m2,d2 = tuple(map(int,input().split()))
 weekday = input()
 
-k = 0
 for i in range(7):
     if weekday == days_week[i]:
         k = i
-        break
-k = 7 if k == 0 else k
 
+cnt = 0
 diff = f(m2,d2) - f(m1,d1)
-print((diff-k)//7+1)
+for n in range(1,diff+1):
+    if n%7==k:
+        cnt += 1
+
+print(cnt)
