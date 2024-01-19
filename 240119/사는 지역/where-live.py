@@ -5,10 +5,14 @@ class Address:
         self.area = area
 
 n = int(input())
-people = []
-for _ in range(n):
-    name, num, area = input().split()
-    people.append(Address(name,num,area))
+arr = [
+    name, num, area
+    for _ in range(n)
+]
+people = [
+    Address(name,num,area)
+    for name,num,area in arr
+]
 
 idx = 0
 for i in range(1,n):
