@@ -9,35 +9,18 @@ for k in range(1,-1,-1):
         for j in range(y1+1000,y2+1000):
             plane[i][j] = k
 
-a1,b1,a2,b2 = -1,-1,-1,-1
-
-def is_all_0(arr):
-    for elem in arr:
-        if elem != 0:
-            return False
-    return True
-
+a1,b1,a2,b2 = 2000,2000,0,0
+is_all_0 = True
 for i in range(2000):
-    if is_all_0(plane[i]) == False:
-        a1 = i
-        break
-for i in range(1999,-1,-1):
-    if is_all_0(plane[i]) == False:
-        a2 = i
-        break
+    for j in range(2000):
+        if plane[i][j] == 1:
+            is_all_0 = False
+            a1 = min(a1,i)
+            b1 = min(b1,j)
+            a2 = max(a2,i)
+            b2 = max(b2,j)
 
-for j in range(2000):
-    col_j = [ plane[i][j] for i in range(2000) ]
-    if is_all_0(col_j) == False:
-        b1 = j
-        break
-for j in range(1999,-1,-1):
-    col_j = [ plane[i][j] for i in range(2000) ]
-    if is_all_0(col_j) == False:
-        b2 = j
-        break
-
-if a1==-1 or b1==-1:
+if is_all_0:
     print(0)
 else: 
     print( (a2-a1+1)*(b2-b1+1) )
