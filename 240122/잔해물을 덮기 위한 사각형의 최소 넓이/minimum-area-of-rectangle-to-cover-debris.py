@@ -37,7 +37,7 @@ for j in range(1999,-1,-1):
         b2 = j
         break
 
-if a1==-1 of b1==-1:
+if a1==-1 or b1==-1:
     print(0)
 else: 
     print( (a2-a1+1)*(b2-b1+1) )
