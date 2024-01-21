@@ -8,7 +8,6 @@ for k in range(1,-1,-1):
     for i in range(x1+1000,x2+1000):
         for j in range(y1+1000,y2+1000):
             plane[i][j] = k
-        
 
 a1,b1,a2,b2 = -1,-1,-1,-1
 
@@ -22,8 +21,8 @@ for i in range(2000):
     if is_all_0(plane[i]) == False:
         a1 = i
         break
-for i in range(a1+1,2000):
-    if is_all_0(plane[i]):
+for i in range(1999,-1,-1):
+    if is_all_0(plane[i]) == False:
         a2 = i
         break
 
@@ -32,10 +31,10 @@ for j in range(2000):
     if is_all_0(col_j) == False:
         b1 = j
         break
-for j in range(b1+1,2000):
+for j in range(1999,-1,-1):
     col_j = [ plane[i][j] for i in range(2000) ]
-    if is_all_0(col_j):
+    if is_all_0(col_j) == False:
         b2 = j
         break
 
-print( (a2-a1)*(b2-b1) )
+print( (a2-a1+1)*(b2-b1+1) )
