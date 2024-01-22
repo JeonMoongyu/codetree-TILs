@@ -1,85 +1,33 @@
+import sys
+
 board = [
     list(map(int,input().split()))
     for _ in range(19)
 ]
 
 
-def black_win_at(i,j):
-    if 2<=i and i<=16:
-        win = True
-        for k in range(-2,3):
-            if board[i+k][j] != 1:
-                win = False
-        if win:
-            return True
-    if 2<=j and j<=16:
-        win = True
-        for k in range(-2,3):
-            if board[i][j+k] != 1:
-                win = False
-        if win:
-            return True
-    if 2<=i and i<=16 and 2<=j and j<=16:
-        win = True
-        for k in range(-2,3):
-            if board[i+k][j+k] != 1:
-                win = False
-        if win:
-            return True
-        win = True
-        for k in range(-2,3):
-            if board[i-k][j+k] != 1:
-                win = False
-        if win:
-            return True
-    return False
+def in_range(i,j):
+    return 0<=i and i<19 and 0<=j and j<19
 
 
-def white_win_at(i,j):
-    if 2<=i and i<=16:
-        win = True
-        for k in range(-2,3):
-            if board[i+k][j] != 2:
-                win = False
-        if win:
-            return True
-    if 2<=j and j<=16:
-        win = True
-        for k in range(-2,3):
-            if board[i][j+k] != 2:
-                win = False
-        if win:
-            return True
-    if 2<=i and i<=16 and 2<=j and j<=16:
-        win = True
-        for k in range(-2,3):
-            if board[i+k][j+k] != 2:
-                win = False
-        if win:
-            return True
-        win = True
-        for k in range(-2,3):
-            if board[i-k][j+k] != 2:
-                win = False
-        if win:
-            return True
-    return False
-
-
-someone_win = False
+dis, djs = [0,1,1], [1,1,0]
 for i in range(19):
     for j in range(19):
-        if black_win_at(i,j):
-            someone_win = True
-            print(1)
-            print(i+1,j+1)
-            break
-        if white_win_at(i,j):
-            someone_win = True
-            print(2)
-            print(i+1,j+1)
-            break
-    if someone_win:
-        break
-if not someone_win:
-    print(0)
+        if board[i][j] == 0:
+            continue
+        for di, dj in zip(dis,djs):
+            cur_i = i
+            cur_j = j
+            win = True
+            for _ in range(4):
+                ni, nj = cur_i+di, cur_j+dj
+                if not in_range(ni,nj) or board[ni][nj]!=board[i][j]:
+                    win = False
+                    break
+                cur_i = ni
+                cur_j = nj
+            if win:
+                print(board[i][j])
+                print(i+di*2+1,j+dj*2+1)
+                sys.exit()
+print(0)
