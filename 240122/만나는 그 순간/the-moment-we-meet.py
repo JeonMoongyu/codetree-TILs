@@ -13,7 +13,7 @@ for _ in range(m):
     d = -1 if d == 'L' else 1
     for _ in range(t):
         b.append(b[-1]+d)
-when = 0
+when = -1
 for i in range(1,len(a)):
     if a[i] == b[i]:
         when = i
