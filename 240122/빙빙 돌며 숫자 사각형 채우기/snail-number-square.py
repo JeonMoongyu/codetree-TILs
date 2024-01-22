@@ -8,7 +8,7 @@ dis, djs = [0,1,0,-1], [1,0,-1,0]
 
 
 def in_range(i,j):
-    return 0<=i and i<n and 0<=j and j<n
+    return 0<=i and i<n and 0<=j and j<m
 
 
 i, j = 0, 0
