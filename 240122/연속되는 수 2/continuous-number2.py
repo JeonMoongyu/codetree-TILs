@@ -1,11 +1,12 @@
 n = int(input())
-cnt = [1]
-form = int(input())
-for _ in range(1,n):
-    new = int(input())
-    if new == form:
-        cnt[-1] += 1
+arr = [
+    int(input()) for _ in range(n)
+]
+ans, cnt = 1, 1
+for i in range(1,n):
+    if arr[i] == arr[i-1]:
+        cnt += 1
     else:
-        cnt.append(1)
-    form = new
-print(max(cnt))
+        ans = max(ans,cnt)
+        cnt = 1
+print(ans)
