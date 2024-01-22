@@ -2,9 +2,10 @@ a = list(map(int,list(input())))
 
 
 def decimal(b_list):
-    if len(b_list) == 1:
-        return b_list[0]
-    return decimal(b_list[:-1])*2 + b_list[-1]
+    result = 0
+    for j in range(len(b_list)):
+        result = result*2 + b_list[j]
+    return result
 
 
 max_N = 0
