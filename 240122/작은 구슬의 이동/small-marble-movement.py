@@ -10,7 +10,7 @@ mapper = {
 }
 d = mapper[d]
 
-dis, djs = [1,0,0,-1], [0,1,-1,0]
+dis, djs = [-1,0,0,1], [0,1,-1,0]
 
 
 def in_range(i,j):
