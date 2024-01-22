@@ -10,7 +10,7 @@ def in_range(i,j):
     return 0<=i and i<19 and 0<=j and j<19
 
 
-dis, djs = [0,1,1], [1,1,0]
+dis, djs = [-1,0,1,1], [1,1,1,0]
 for i in range(19):
     for j in range(19):
         if board[i][j] == 0:
