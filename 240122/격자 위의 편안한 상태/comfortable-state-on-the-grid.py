@@ -18,7 +18,7 @@ def is_comfortable(i,j):
         ni, nj = i+dis[d], j+djs[d] 
         if in_range(ni,nj):
             cnt += grid[ni][nj]
-    return cnt >= 3
+    return cnt == 3
     
 
 for _ in range(m):
