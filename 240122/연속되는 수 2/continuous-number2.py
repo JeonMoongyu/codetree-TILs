@@ -9,4 +9,5 @@ for i in range(1,n):
     else:
         ans = max(ans,cnt)
         cnt = 1
+ans = max(ans,cnt)
 print(ans)
