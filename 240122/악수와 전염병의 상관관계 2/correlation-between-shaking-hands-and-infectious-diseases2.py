@@ -5,12 +5,14 @@ count = [0 for _ in range(N+1)]
 infested[P] = 1
 count[P] = K
 
-handshake = [(0,0) for _ in range(251)]
+handshake = []
 for _ in range(T):
     t,x,y = tuple(map(int,input().split()))
-    handshake[t] = (x,y)
+    handshake.append((t,x,y))
 
-for t,(x,y) in enumerate(handshake[1:],start=1):
+handshake.sort(key= lambda a: a[0])
+
+for t,x,y in handshake:
     if infested[x] == 1 and infested[y] == 0:
         if count[x] > 0:
             infested[y] = 1
