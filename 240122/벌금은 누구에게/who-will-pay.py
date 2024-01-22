@@ -7,5 +7,6 @@ for _ in range(m):
     if penalties[student] == k:
         no_penalty = False
         print(student)
+        break
 if no_penalty:
     print(-1)
