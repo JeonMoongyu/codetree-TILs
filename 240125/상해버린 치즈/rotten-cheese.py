@@ -17,12 +17,13 @@ for j, (sick_person, sick_time) in enumerate(sick):
         if sick_person == eat_person and eat_time < sick_time:
             rotted[cheese][j] = 1
 
-possible_sick = [0 for _ in range(n+1)]
-for eat_person, cheese, eat_time in data:
-    if sum(rotted[cheese]) == s:
-        possible_sick[eat_person] = 1
-
 ans = 0
-for elem in possible_sick[1:]:
-    ans += elem
+for rot_ch in range(1,m+1):
+    if sum(rotted[rot_ch]) == s:
+        people = [0 for _ in range(n+1)]
+        for eat_person, cheese, eat_time in data:
+            if cheese == rot_ch:
+                people[eat_person] = 1
+        ans = max(ans, sum(people))    
+
 print(ans)
