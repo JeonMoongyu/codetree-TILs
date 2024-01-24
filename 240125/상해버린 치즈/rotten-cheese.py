@@ -17,14 +17,14 @@ for cheese in range(1,m+1):
             continue
         if time[p] == 0:
             time[p] = t
-        elif time[p] < t:
+        elif time[p] > t:
             time[p] = t
 
     possible = True
     for p,t in sick:
         if time[p] == 0:
             possible = False
-        elif time[p] > t:
+        if time[p] >= t:
             possible = False
     
     if possible:
