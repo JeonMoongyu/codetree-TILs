@@ -8,22 +8,30 @@ sick = [
     for _ in range(s)
 ]
 
-rotted = [
-    [0 for _ in range(s)]
-    for _ in range(m+1)
-]
-for j, (sick_person, sick_time) in enumerate(sick):
-    for eat_person, cheese, eat_time in data:
-        if sick_person == eat_person and eat_time < sick_time:
-            rotted[cheese][j] = 1
-
 ans = 0
-for rot_ch in range(1,m+1):
-    if sum(rotted[rot_ch]) == s:
-        people = [0 for _ in range(n+1)]
-        for eat_person, cheese, eat_time in data:
-            if cheese == rot_ch:
-                people[eat_person] = 1
-        ans = max(ans, sum(people))    
+for cheese in range(1,m+1):
+    
+    time = [0] * (n+1)
+    for p,c,t in data:
+        if c != cheese:
+            continue
+        if time[p] == 0:
+            time[p] = t
+        elif time[p] < t:
+            time[p] = t
+
+    possible = True
+    for p,t in sick:
+        if time[p] == 0:
+            possible = False
+        elif time[p] > t:
+            possible = False
+    
+    if possible:
+        pill = 0
+        for t in time[1:]:
+            if t != 0:
+                pill += 1
+        ans = max(ans,pill)
 
 print(ans)
