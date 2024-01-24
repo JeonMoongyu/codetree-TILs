@@ -9,10 +9,8 @@ for i in range(n):
     prices[i] //= 2
     sorted_prices = sorted(prices)
     prices[i] *= 2
-    sum_prices = 0
     for j in range(n):
-        sum_prices += sorted_prices[j]
-        if sum_prices > budget:
-            ans = max(ans,j)
-            break
+        for j in range(ans,n):
+            if sum(sorted_prices[:j]) <= budget:
+                ans = j+1
 print(ans)
