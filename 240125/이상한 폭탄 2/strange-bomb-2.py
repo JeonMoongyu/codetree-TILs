@@ -10,12 +10,10 @@ def in_range(i):
 
 ans = -1
 for i in range(n):
-    exists = False
-    for j in range(i+1,i+k+1):
-        if in_range(j) and bombs[j] == bombs[i]:
-            exists = True
-            break
-    if exists:
-        ans = max(ans,bombs[i])
+    for j in range(i+1,n):
+        if j-i > k:
+            continue
+        if bombs[i] == bombs[j]:
+            ans = max(ans,bombs[i])
 
 print(ans)
