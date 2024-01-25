@@ -6,9 +6,8 @@ arr = [
 
 ans = 0
 for i in range(n):
-    arr[i] = (arr[i][0]//2, arr[i][1])
     arr_ith = [ arr[k] for k in range(n) ]
-    arr[i] = (arr[i][0]*2, arr[i][1]) 
+    arr_ith[i] = (arr[i][0]//2, arr[i][1])
     arr_ith.sort(key= lambda x: x[0]+x[1])
 
     cost, num_of_students = 0, 0
