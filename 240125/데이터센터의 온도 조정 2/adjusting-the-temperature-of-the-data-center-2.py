@@ -7,7 +7,7 @@ temp = [
 min_temp = sorted(temp, key= lambda x: x[0])[0][0]
 max_temp = sorted(temp, key= lambda x: x[1])[n-1][1]
 left_end = max(0,min_temp-1)
-right_end = max_temp
+right_end = max_temp+5
 
 work = [0] * (right_end+1)
 for ta,tb in temp:
