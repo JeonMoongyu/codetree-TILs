@@ -2,8 +2,8 @@ x,y = tuple(map(int,input().split()))
 
 
 def is_palindrome(n):
-    n_list = list(map(int,list(str(n))))
-    return n_list == n_list[::-1]
+    n_str = str(n)
+    return n_str == n_str[::-1]
 
 
 ans = 0
