@@ -14,3 +14,5 @@ while ans < 100:
         print(ans)
         break
     ans += 1
+if ans == 100:
+    print(100)
