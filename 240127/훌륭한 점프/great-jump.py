@@ -6,7 +6,7 @@ def end_points_ok(arr, max_val):
     return arr[0] <= max_val and arr[-1] <= max_val
 
 def max_dist(arr, max_val):
-    indices = [ i for i in range(1, len(arr)1-1) if arr[i] <= max_val ]
+    indices = [ i for i in range(len(arr)) if arr[i] <= max_val ]
     distances = [ indices[j+1]-indices[j] for j in range(len(indices)-1) ]
     return max(distances)
 
