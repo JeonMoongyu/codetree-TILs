@@ -1,6 +1,7 @@
 import sys
 
 arr = list(map(int,input().split()))
+arr.sort()
 
 
 def f_list(a,b,c,d):
@@ -11,15 +12,7 @@ for a in range(1,41):
     for b in range(1,41):
         for c in range(1,41):
             for d in range(1,41):
-                satisfied = True
-                temp = [ elem for elem in arr ]
-                for val in f_list(a,b,c,d):
-                    if temp.count(val) > 0:
-                        idx = temp.index(val)
-                        temp = temp[:idx] + temp[idx+1:]
-                    else:
-                        satisfied = False
-                if satisfied:
+                if sorted(f_list(a,b,c,d)) == arr:
                     ans = sorted([a,b,c,d])
                     for elem in ans:
                         print(elem, end=" ")
