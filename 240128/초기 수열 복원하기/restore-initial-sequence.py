@@ -2,21 +2,22 @@ n = int(input())
 arr = list(map(int,input().split()))
 
 
-def list_of_perm(m):
-    if m == 1:
-        return [[1]]
-    return sorted([ ex_perm[:i] + [m] + ex_perm[i:] \
-                    for i in range(m) \
-                    for ex_perm in list_of_perm(m-1) ])
+def is_perm(seq):
+    for i in range(len(seq)):
+        if seq[i] <= 0 or seq[i] > n:
+            return False
+    for i in range(len(seq)):
+        for j in range(i+1,len(seq)):
+            if seq[i] == seq[j]:
+                return False
+    return True
 
 
-for perm in list_of_perm(n):
-    satisfied = True
-    for i in range(n-1):
-        if perm[i]+perm[i+1] != arr[i]:
-            satisfied = False
-            break
-    if satisfied:
-        for elem in perm:
+for a in range(1,n+1):
+    seq = [a]
+    for i in range(1,n):
+        seq.append(arr[i-1]-seq[i-1])
+    if is_perm(seq):
+        for elem in seq:
             print(elem, end=" ")
         break
