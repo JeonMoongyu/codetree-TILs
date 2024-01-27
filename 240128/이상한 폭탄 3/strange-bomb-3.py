@@ -15,11 +15,14 @@ def cnt_exp(m):
     return count
 
 
-bomb, num = cnt_exp(bombs[0]), bombs[0]
-for i in range(1,n):
+bomb, num = 0, 0
+for i in range(n):
     if cnt_exp(bombs[i]) > bomb:
         bomb = cnt_exp(bombs[i])
         num = bombs[i]
     elif cnt_exp(bombs[i]) == bomb and bombs[i] > num:
         num = bombs[i]
-print(num)
+if bomb:
+    print(num)
+else:
+    print(0)
