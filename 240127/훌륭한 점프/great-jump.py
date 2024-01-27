@@ -11,7 +11,7 @@ def max_dist(arr, max_val):
     return max(distances)
 
 
-ans = n
+ans = 100
 while ans > 1:
     if not end_points_ok(stones, ans-1) or max_dist(stones, ans-1) > k:
         break
