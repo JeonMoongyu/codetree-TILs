@@ -14,7 +14,8 @@ def adj_sum(seq):
     return [ seq[i]+seq[i+1] for i in range(len(seq)-1) ]
 
 
-for perm in list_of_perm(n):
+_list = list_of_perm(n)
+for perm in _list:
     if adj_sum(perm) == arr:
         for elem in perm:
             print(elem, end=" ")
