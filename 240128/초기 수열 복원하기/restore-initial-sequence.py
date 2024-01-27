@@ -11,10 +11,10 @@ def list_of_perm(m):
 
 
 def adj_sum(seq):
-    return [ seq[i]+seq[i+1] for i in range(n-2) ]
+    return [ seq[i]+seq[i+1] for i in range(len(seq)-1) ]
 
 
-for perm in list_of_seq(n):
+for perm in list_of_perm(n):
     if adj_sum(perm) == arr:
         for elem in perm:
             print(elem, end=" ")
