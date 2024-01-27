@@ -10,13 +10,13 @@ def list_of_perm(m):
                     for ex_perm in list_of_perm(m-1) ])
 
 
-def adj_sum(seq):
-    return [ seq[i]+seq[i+1] for i in range(len(seq)-1) ]
-
-
-_list = list_of_perm(n)
-for perm in _list:
-    if adj_sum(perm) == arr:
+for perm in list_of_perm(n):
+    satisfied = True
+    for i in range(n-1):
+        if perm[i]+perm[i+1] != arr[i]:
+            satisfied = False
+            break
+    if satisfied:
         for elem in perm:
             print(elem, end=" ")
         break
