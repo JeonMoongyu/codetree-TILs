@@ -1,14 +1,14 @@
 x = int(input())
 
-
-def max_dist(t):
-    if t % 2 == 0:
-        return (t+2)*t//4
-    else:
-        return (t+1)**2//4
-
-
 for t in range(1,200):
-    if max_dist(t) >= x:
+    vel = 1
+    pos = 1
+    for time in range(1,t):
+        if vel - 1 == t - time:
+            vel -= 1
+        elif vel - 1 <= t - time - 2:
+            vel += 1
+        pos += vel
+    if pos >= x:
         print(t)
         break
