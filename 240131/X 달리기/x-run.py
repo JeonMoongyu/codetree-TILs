@@ -3,7 +3,7 @@ x = int(input())
 
 def max_dist(t):
     if t % 2 == 0:
-        return (2*t+1)*t//4
+        return (t+2)*t//4
     else:
         return (t+1)**2//4
 
