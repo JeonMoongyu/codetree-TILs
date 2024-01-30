@@ -14,13 +14,11 @@ def num_of_int(arr, max_val): # max_val > arr[i] for all i
             curr_sum += elem
     return result
 
-max_val = sum(arr)
-ans = sys.maxsize
+max_val = sum(arr) + 1
 while max_val > max(arr):
-    if num_of_int(arr, max_val) <= m:
-        ans = max_val
+    if num_of_int(arr, max_val - 1) <= m:
+        max_val -= 1
     else:
         break
-    max_val -= 1
 
 print(max_val)
