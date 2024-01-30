@@ -22,7 +22,7 @@ def num_to_alp(k):
 
 for c, u in data[1:]:
     if u >= data[p][1]:
-        check[alp_to_num(c)] = 1
+        check[alp_to_num(c)] = 0
     
 for i in range(n):
     if check[i]:
