@@ -8,7 +8,9 @@ for i in range(n):
     if arr[i] == n:
         idx_n = i
 
-if idx_n > idx_1:
+if arr == [ k for k in range(1,n+1) ]:
+    print(0)
+elif idx_n > idx_1:
     print(idx_n+1)
 else:
     print(idx_1)
