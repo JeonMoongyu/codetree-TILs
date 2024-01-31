@@ -3,27 +3,36 @@ import sys
 n = int(input())
 arr = list(map(int,list(input())))
 
-indices = [ i for i in range(n) if arr[i]==1 ]
+max_dist = 0
+for i in range(n):
+    if arr[i] == 1:
+        for j in range(i+1,n):
+            if arr[j] == 1:
+                if j-i > max_dist:
+                    max_dist = j-i
+                    i1 = i
+                    j1 = j
+                break
 
-if len(indices) == 1:
-    print(max(indices[0],n-1-indices[0]))
-    sys.exit()
-
-
-distances = [ indices[j+1]-indices[j] for j in range(len(indices)-1) ]
-
-ans = 0
+max_dist_2 = 0
 if arr[0] == 0:
-    ans = max(ans,min(indices[0],min(distances)))
+    max_dist_2 = arr.index(1)
+    idx = arr.index(1)
 if arr[-1] == 0:
-    ans = max(ans,min(n-1-indices[-1],min(distances)))
+    max_dist_2 = max(max_dist_2,arr[::-1].index(1))
+    idx = n-1-arr[::-1].index(1)
 
-idx = 0
-for k in range(len(distances)):
-    if distances[k] > distances[idx]:
-        idx = k
 
-distances[idx] //= 2
-ans = max(ans,min(distances))
+if max_dist_2 > 0 and max_dist_2 >= max_dist // 2:
+    arr[idx] = 1
+else:
+    arr[(i1+j1)//2] = 1
+
+ans = 1000
+for i in range(n):
+    if arr[i] == 1:
+        for j in range(i+1,n):
+            if arr[j] ==1:
+                ans = min(ans,j-i)
 
 print(ans)
