@@ -15,12 +15,11 @@ for i in range(n):
 max_dist_2 = 0
 if arr[0] == 0:
     max_dist_2 = arr.index(1)
-    idx = arr.index(1)
+    idx = 0
 if arr[-1] == 0:
     if arr[::-1].index(1) > max_dist_2:
         max_dist_2 = arr[::-1].index(1)
-        idx = n-1-arr[::-1].index(1)
-
+        idx = n-1
 
 if max_dist_2 > 0 and max_dist_2 >= max_dist // 2:
     arr[idx] = 1
