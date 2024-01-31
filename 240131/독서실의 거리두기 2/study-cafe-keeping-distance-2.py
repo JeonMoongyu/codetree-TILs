@@ -6,7 +6,7 @@ arr = list(map(int,list(input())))
 indices = [ i for i in range(n) if arr[i]==1 ]
 
 if len(indices) == 1:
-    print(min(indices[0],n-1-indices[0]))
+    print(max(indices[0],n-1-indices[0]))
     sys.exit()
 
 
