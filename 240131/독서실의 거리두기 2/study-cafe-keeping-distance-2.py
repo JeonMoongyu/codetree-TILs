@@ -15,7 +15,7 @@ for k in range(len(distances)):
     if distances[k] > distances[idx]:
         idx = k
 
-distances[k] //= 2
+distances[idx] //= 2
 ans = max(ans,min(distances))
 
 print(ans)
