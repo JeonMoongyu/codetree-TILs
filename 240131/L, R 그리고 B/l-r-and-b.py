@@ -12,10 +12,10 @@ for i in range(1,11):
 
 if l_i == r_i and r_i == b_i and \
    (l_j < r_j and r_j < b_j or l_j > r_j and r_j > b_j):
-    ans = abs(l_j-b_j+1)
+    ans = abs(l_j-b_j) + 1
 elif l_j == r_j and r_j == b_j and \
     (l_i < r_i and r_i < b_i or l_i > r_i and r_i > b_i):
-    ans = abs(l_i-b_i+1)
+    ans = abs(l_i-b_i) + 1
 else:
     ans = abs(l_i-b_i) + abs(l_j-b_j) - 1
 
