@@ -1,7 +1,15 @@
+import sys
+
 n = int(input())
 arr = list(map(int,list(input())))
 
 indices = [ i for i in range(n) if arr[i]==1 ]
+
+if len(indices) == 1:
+    print(min(indices[0],n-1-indices[0]))
+    sys.exit()
+
+
 distances = [ indices[j+1]-indices[j] for j in range(len(indices)-1) ]
 
 ans = 0
