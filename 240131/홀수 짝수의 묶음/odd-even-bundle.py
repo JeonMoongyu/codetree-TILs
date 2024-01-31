@@ -7,12 +7,12 @@ for elem in arr:
         even += 1
 odd = n - even
 
+
 while odd > even:
     odd -= 2
     even += 1
-# Now 0 <= even - odd <= 2
 
-if even == odd + 2:
-    even -= 1
-
-print(even + odd)
+if even > odd:
+    print(2*odd+1)
+else: # even == odd
+    print(2*odd)
