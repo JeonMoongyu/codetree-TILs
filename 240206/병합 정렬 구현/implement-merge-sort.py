@@ -28,8 +28,6 @@ def merge(low,mid,high):
 
 
 def merge_sort(low, high):
-    global arr
-
     if low < high:
         mid = (low+high)//2
         merge_sort(low,mid)
