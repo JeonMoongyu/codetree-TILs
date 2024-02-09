@@ -31,14 +31,10 @@ class Queue:
 
 n, k = tuple(map(int,input().split()))
 q = Queue()
-dead_q = Queue()
 for i in range(1,n+1):
     q.push(i)
 
 while not q.empty():
     for _ in range(k-1):
         q.push(q.pop())
-    dead_q.push(q.pop())
-
-while not dead_q.empty():
-    print(dead_q.pop(), end=" ")
+    print(q.pop(), end=" ")
