@@ -17,16 +17,15 @@ def heapify(arr, n ,i):
         heapify(arr, n, largest)
 
 
-def heap_sort(arr, n):
+def heap_sort(arr):
     for i in range(n//2, 0, -1):
         heapify(arr, n, i)
-    arr[1], arr[n] = arr[n], arr[1]
 
-    for j in range(n-1, 0, -1):
-        heapify(arr, j, 1)
+    for j in range(n, 0, -1):
         arr[1], arr[j] = arr[j], arr[1]
+        heapify(arr, j-1, 1)
 
 
-heap_sort(arr, n)
+heap_sort(arr)
 for elem in arr[1:]:
     print(elem, end=" ")
