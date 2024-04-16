@@ -3,6 +3,7 @@ using namespace std;
 
 int main() {
     int m;
+    cin >> m;
     if (m<=2)
         cout << "Winter";
     else if (m<=5)
