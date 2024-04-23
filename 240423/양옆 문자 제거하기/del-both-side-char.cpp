@@ -6,6 +6,8 @@ int main() {
     string str;
     cin >> str;
     int n = str.length();
-    cout << str[0] + str.substr(2,n-4) + str[n-1]; 
+    str.erase(n-2,1);
+    str.erase(1,1);
+    cout << str;
     return 0;
 }
